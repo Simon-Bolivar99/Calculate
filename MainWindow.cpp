@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent)
     : QWidget(parent)
 {
     createGui();
+    connectSignals();
 }
 
 MainWindow::~MainWindow()
@@ -50,7 +51,7 @@ void MainWindow::createGui()
     auto m_layout = new QGridLayout();
         m_layout->setMargin(5);
         m_layout->setSpacing(2);
-        m_layout->setRowStretch(4,2);
+        //m_layout->setRowStretch(4,2);
         m_layout->addWidget(m_line_res,  0, 0, 1, 4);
         m_layout->addWidget(m_btn_1,     1, 0, 1, 1);
         m_layout->addWidget(m_btn_2,     1, 1, 1, 1);
@@ -68,6 +69,28 @@ void MainWindow::createGui()
 
 
 
-    setLayout(m_layout);
+        setLayout(m_layout);
+}
+
+void MainWindow::buttonHander()
+{
+    m_line_res->setText(qobject_cast<QPushButton*>(sender())->text());
+}
+
+void MainWindow::connectSignals()
+{
+    connect(m_btn_0, &QPushButton::clicked, this, &MainWindow::buttonHander);
+    connect(m_btn_1, &QPushButton::clicked, this, &MainWindow::buttonHander);
+    connect(m_btn_2, &QPushButton::clicked, this, &MainWindow::buttonHander);
+    connect(m_btn_3, &QPushButton::clicked, this, &MainWindow::buttonHander);
+    connect(m_btn_4, &QPushButton::clicked, this, &MainWindow::buttonHander);
+    connect(m_btn_5, &QPushButton::clicked, this, &MainWindow::buttonHander);
+    connect(m_btn_6, &QPushButton::clicked, this, &MainWindow::buttonHander);
+    connect(m_btn_7, &QPushButton::clicked, this, &MainWindow::buttonHander);
+    connect(m_btn_8, &QPushButton::clicked, this, &MainWindow::buttonHander);
+    connect(m_btn_9, &QPushButton::clicked, this, &MainWindow::buttonHander);
+    connect(m_btn_plus, &QPushButton::clicked, this, &MainWindow::buttonHander);
+    connect(m_btn_minus, &QPushButton::clicked, this, &MainWindow::buttonHander);
+    connect(m_btn_equal, &QPushButton::clicked, this, &MainWindow::buttonHander);
 }
 

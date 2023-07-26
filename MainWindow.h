@@ -16,6 +16,8 @@ public:
 
 private:
     void createGui();
+    void buttonHander();
+    void connectSignals();
 
 private:
     QPushButton *m_btn_0, *m_btn_1 , *m_btn_2,
@@ -25,5 +27,8 @@ private:
 
     QLineEdit *m_line_res;
 
+
+
 };
+
 #endif // MAINWINDOW_H
